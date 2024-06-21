@@ -1,0 +1,27 @@
+CREATE TABLE DEP1(
+    EMP_ID INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    NAME CHAR(25),
+    DEPARTMENT CHAR(25)
+);
+
+INSERT INTO DEP1 (EMP_ID,NAME,DEPARTMENT) VALUES
+                 (1,'A','ENGINEER'),
+                 (2,'B','SALESMAN'),
+                 (3,'C','MANAGER'),
+                 (4,'D','ENGINEER');
+                 
+CREATE TABLE DEP2(
+    EMP_ID INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    NAME CHAR(25),
+    DEPARTMENT CHAR(25)
+);
+
+
+INSERT INTO DEP2 (EMP_ID,NAME,DEPARTMENT) VALUES
+                 (3,'C','MANAGER'),
+                 (5,'E','MARKETING'),
+                 (6,'F','SALESMAN');
+
+
+-- MINUS
+SELECT DEP1.* FROM DEP1 left JOIN DEP2 USING(EMP_ID) WHERE DEP2.EMP_ID IS NULL;
